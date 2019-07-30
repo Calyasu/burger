@@ -10,6 +10,13 @@ app.use(express.static("public"));
 // Parse application body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+var connection = mysql.createConnection(process.env.JAWSDB_URL || {
+    host: "localhost",
+    port: 3307,
+    user: "root",
+    password: "root",
+    database: "burgers_db"
+});
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
